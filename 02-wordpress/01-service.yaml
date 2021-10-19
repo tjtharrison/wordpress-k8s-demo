@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-wordpress
+  namespace: wordpress
+  labels:
+    app: wordpress
+spec:
+  # uncomment and delete the following line if you want to use a NodePort (Eg if your cluster does not support LoadBalancer)
+  #type: NodePort
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: wordpress
